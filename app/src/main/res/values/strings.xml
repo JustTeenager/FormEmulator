@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Form Emulator</string>
+    <string name="let_s_call_you">let`s call you</string>
+    <string name="hey">Hey!</string>
+    <string name="how_are_you">How are you?</string>
+    <string name="video_chat_is_not_available">Video chat is not available</string>
+    <string name="information">Information</string>
+</resources>
