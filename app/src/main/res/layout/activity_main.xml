@@ -11,7 +11,14 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="6">
+        android:layout_weight="8">
+        <ImageView
+            android:id="@+id/image_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tint="#90120a8f"
+            android:scaleType="centerCrop"
+            />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
@@ -24,6 +31,8 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:textSize="40sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
             android:layout_marginTop="16dp"
             android:gravity="center_horizontal" />
     </FrameLayout>
@@ -47,7 +56,6 @@
                 android:id="@+id/text_favorite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="200"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginLeft="16dp"
@@ -61,7 +69,6 @@
                 android:id="@+id/text_group"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="200"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginLeft="16dp"
@@ -78,7 +85,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/let_s_call_you"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:padding="6dp"
                 android:background="@android:color/holo_blue_bright"
                 />
@@ -87,8 +94,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/hey"
-                android:textSize="18sp"
-                android:layout_marginLeft="32dp"
+                android:textSize="16sp"
+                android:layout_marginLeft="30dp"
                 android:padding="6dp"
                 android:background="@android:color/holo_orange_dark"
                 />
@@ -97,8 +104,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/how_are_you"
-                android:textSize="18sp"
-                android:layout_marginLeft="32dp"
+                android:textSize="16sp"
+                android:layout_marginLeft="30dp"
                 android:padding="6dp"
                 android:background="@android:color/holo_red_light"
                 />
@@ -110,10 +117,12 @@
             android:layout_height="wrap_content"
             android:text="@string/video_chat_is_not_available"
             android:textSize="14sp"
+            android:clickable="false"
             android:layout_gravity="center"
             android:backgroundTint="@android:color/darker_gray"
             />
         <TextView
+            android:id="@+id/info_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/information"

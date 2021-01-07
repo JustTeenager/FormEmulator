@@ -24,6 +24,10 @@ import java.lang.Math.abs
 import java.util.concurrent.*
 
 class MainActivity : AppCompatActivity(),SnapOnScrollListener.OnSnapPositionChangeListener{
+
+
+    private val NUMBER_OF_MODELS=10
+
     private lateinit var recyclerView:RecyclerView
     private lateinit var recyclerViewBackground:ImageView
     private lateinit var nameText: TextView
@@ -161,7 +165,7 @@ class MainActivity : AppCompatActivity(),SnapOnScrollListener.OnSnapPositionChan
         @Synchronized
         private fun addToModelList(model: PhotoModel){
             listPhotosModel.add(model)
-            if (listPhotosModel.size>=10 && !service.isShutdown) {
+            if (listPhotosModel.size>=NUMBER_OF_MODELS && !service.isShutdown) {
                 service.shutdown()
                 endThreadLoading()
                 handler.looper.quitSafely()
