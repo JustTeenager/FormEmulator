@@ -5,7 +5,6 @@ import android.content.Context
 import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.os.*
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.widget.ImageView
@@ -78,7 +77,6 @@ class MainActivity : AppCompatActivity(),SnapOnScrollListener.OnSnapPositionChan
     }
 
     private fun initButtons(){
-        Log.e("setupButtons",Thread.currentThread().name)
         callText=findViewById(R.id.text_call)
         heyText=findViewById(R.id.text_hey)
         howText=findViewById(R.id.text_how)
@@ -130,7 +128,7 @@ class MainActivity : AppCompatActivity(),SnapOnScrollListener.OnSnapPositionChan
             handler=Handler(looper){
                 when (it.what){
                     CODE_TO_SHOW_DIALOG -> showDialog()
-                    CODE_TO_DISMISS_DIALOG->dismissDialog()
+                    CODE_TO_DISMISS_DIALOG -> dismissDialog()
                     CODE_TO_CHECK_MODEL -> checkModel(it.obj as String?)
                     CODE_TO_WRITE_MODEL -> writeModel(it.obj as String?)
                     CODE_TO_READ_MODEL -> readModel(it.obj as String)
@@ -179,7 +177,6 @@ class MainActivity : AppCompatActivity(),SnapOnScrollListener.OnSnapPositionChan
         }
 
         fun checkModel(name: String?) {
-            Log.d("Check:",Thread.currentThread().name)
             val isExists:Future<Boolean> =service.submit(Callable {
                 DBHelper.getHelper(this@MainActivity).isModelExists(name?.replace(".jpg", ""))
             })
