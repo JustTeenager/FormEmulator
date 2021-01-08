@@ -107,6 +107,11 @@ class MainActivity : AppCompatActivity(),SnapOnScrollListener.OnSnapPositionChan
         groupsText.text=listPhotosModel[0].group.toString()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        dbThread.quit()
+    }
+
     inner class DBHandlerThread(name: String?, private val service:ExecutorService) : HandlerThread(name) {
 
         lateinit var handler:Handler
@@ -121,6 +126,12 @@ class MainActivity : AppCompatActivity(),SnapOnScrollListener.OnSnapPositionChan
         override fun start() {
             super.start()
             showDialog()
+        }
+
+        override fun quit(): Boolean {
+            service.shutdownNow()
+            handler.looper.quit()
+            return super.quit()
         }
 
         override fun onLooperPrepared() {
